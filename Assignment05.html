@@ -1,0 +1,1922 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by /Users/ibrandon/PycharmProjects/pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgreen;
+    text-align: center;
+}
+h3 {
+    color: darkgreen;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: lightgreen;
+}
+th {
+    background-color: darkgreen;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: white;
+    color: green;
+}
+tr:nth-child(odd) {
+    background-color: green;
+    color: white;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>Covid Data by Country</h1>
+<table id="table-882" style="width:100%"><th><a href="javascript:sortTable('table-882', 0, 'S')"">Country</a>
+</th>
+<th><a href="javascript:sortTable('table-882', 1, 'S')"">Continent</a>
+</th>
+<th><a href="javascript:sortTable('table-882', 2, 'N')"">Population</a>
+</th>
+<th><a href="javascript:sortTable('table-882', 3, 'N')"">Cases</a>
+</th>
+<th><a href="javascript:sortTable('table-882', 4, 'N')"">Deaths</a>
+</th>
+<th><a href="javascript:sortTable('table-882', 5, 'N')"">Cases per Capita</a>
+</th>
+<th><a href="javascript:sortTable('table-882', 6, 'N')"">Percent Deaths</a>
+</th>
+<tr><td style="text-align:left;">Afghanistan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">42239854</td>
+<td style="text-align:right;">234174</td>
+<td style="text-align:right;">7996</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">3.41</td>
+</tr>
+<tr><td style="text-align:left;">Albania</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">2832439</td>
+<td style="text-align:right;">334863</td>
+<td style="text-align:right;">3605</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">1.08</td>
+</tr>
+<tr><td style="text-align:left;">Algeria</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">45606480</td>
+<td style="text-align:right;">272010</td>
+<td style="text-align:right;">6881</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">2.53</td>
+</tr>
+<tr><td style="text-align:left;">Andorra</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">80088</td>
+<td style="text-align:right;">48015</td>
+<td style="text-align:right;">165</td>
+<td style="text-align:right;">0.6</td>
+<td style="text-align:right;">0.34</td>
+</tr>
+<tr><td style="text-align:left;">Angola</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">36684202</td>
+<td style="text-align:right;">107327</td>
+<td style="text-align:right;">1937</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.8</td>
+</tr>
+<tr><td style="text-align:left;">Anguilla</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">15899</td>
+<td style="text-align:right;">3904</td>
+<td style="text-align:right;">12</td>
+<td style="text-align:right;">0.25</td>
+<td style="text-align:right;">0.31</td>
+</tr>
+<tr><td style="text-align:left;">Antigua and Barbuda</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">94298</td>
+<td style="text-align:right;">9106</td>
+<td style="text-align:right;">146</td>
+<td style="text-align:right;">0.1</td>
+<td style="text-align:right;">1.6</td>
+</tr>
+<tr><td style="text-align:left;">Argentina</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">45773884</td>
+<td style="text-align:right;">10128845</td>
+<td style="text-align:right;">130841</td>
+<td style="text-align:right;">0.22</td>
+<td style="text-align:right;">1.29</td>
+</tr>
+<tr><td style="text-align:left;">Armenia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">2777970</td>
+<td style="text-align:right;">451831</td>
+<td style="text-align:right;">8777</td>
+<td style="text-align:right;">0.16</td>
+<td style="text-align:right;">1.94</td>
+</tr>
+<tr><td style="text-align:left;">Aruba</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">106277</td>
+<td style="text-align:right;">44224</td>
+<td style="text-align:right;">292</td>
+<td style="text-align:right;">0.42</td>
+<td style="text-align:right;">0.66</td>
+</tr>
+<tr><td style="text-align:left;">Australia</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">26439111</td>
+<td style="text-align:right;">11853144</td>
+<td style="text-align:right;">24414</td>
+<td style="text-align:right;">0.45</td>
+<td style="text-align:right;">0.21</td>
+</tr>
+<tr><td style="text-align:left;">Austria</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">8958960</td>
+<td style="text-align:right;">6081287</td>
+<td style="text-align:right;">22542</td>
+<td style="text-align:right;">0.68</td>
+<td style="text-align:right;">0.37</td>
+</tr>
+<tr><td style="text-align:left;">Azerbaijan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">10412651</td>
+<td style="text-align:right;">835234</td>
+<td style="text-align:right;">10400</td>
+<td style="text-align:right;">0.08</td>
+<td style="text-align:right;">1.25</td>
+</tr>
+<tr><td style="text-align:left;">Bahamas</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">412623</td>
+<td style="text-align:right;">38084</td>
+<td style="text-align:right;">844</td>
+<td style="text-align:right;">0.09</td>
+<td style="text-align:right;">2.22</td>
+</tr>
+<tr><td style="text-align:left;">Bahrain</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">1485509</td>
+<td style="text-align:right;">729549</td>
+<td style="text-align:right;">1574</td>
+<td style="text-align:right;">0.49</td>
+<td style="text-align:right;">0.22</td>
+</tr>
+<tr><td style="text-align:left;">Bangladesh</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">172954319</td>
+<td style="text-align:right;">2049377</td>
+<td style="text-align:right;">29493</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.44</td>
+</tr>
+<tr><td style="text-align:left;">Barbados</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">281995</td>
+<td style="text-align:right;">110578</td>
+<td style="text-align:right;">648</td>
+<td style="text-align:right;">0.39</td>
+<td style="text-align:right;">0.59</td>
+</tr>
+<tr><td style="text-align:left;">Belarus</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">9498238</td>
+<td style="text-align:right;">994037</td>
+<td style="text-align:right;">7118</td>
+<td style="text-align:right;">0.1</td>
+<td style="text-align:right;">0.72</td>
+</tr>
+<tr><td style="text-align:left;">Belgium</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">11686140</td>
+<td style="text-align:right;">4861695</td>
+<td style="text-align:right;">34376</td>
+<td style="text-align:right;">0.42</td>
+<td style="text-align:right;">0.71</td>
+</tr>
+<tr><td style="text-align:left;">Belize</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">410825</td>
+<td style="text-align:right;">71409</td>
+<td style="text-align:right;">688</td>
+<td style="text-align:right;">0.17</td>
+<td style="text-align:right;">0.96</td>
+</tr>
+<tr><td style="text-align:left;">Benin</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">13712828</td>
+<td style="text-align:right;">28036</td>
+<td style="text-align:right;">163</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.58</td>
+</tr>
+<tr><td style="text-align:left;">Bermuda</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">64069</td>
+<td style="text-align:right;">18860</td>
+<td style="text-align:right;">165</td>
+<td style="text-align:right;">0.29</td>
+<td style="text-align:right;">0.87</td>
+</tr>
+<tr><td style="text-align:left;">Bhutan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">787424</td>
+<td style="text-align:right;">62697</td>
+<td style="text-align:right;">21</td>
+<td style="text-align:right;">0.08</td>
+<td style="text-align:right;">0.03</td>
+</tr>
+<tr><td style="text-align:left;">Bolivia</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">12388571</td>
+<td style="text-align:right;">1212131</td>
+<td style="text-align:right;">22407</td>
+<td style="text-align:right;">0.1</td>
+<td style="text-align:right;">1.85</td>
+</tr>
+<tr><td style="text-align:left;">Bosnia and Herzegovina</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">3210847</td>
+<td style="text-align:right;">403615</td>
+<td style="text-align:right;">16388</td>
+<td style="text-align:right;">0.13</td>
+<td style="text-align:right;">4.06</td>
+</tr>
+<tr><td style="text-align:left;">Botswana</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">2675352</td>
+<td style="text-align:right;">330638</td>
+<td style="text-align:right;">2801</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">0.85</td>
+</tr>
+<tr><td style="text-align:left;">Brazil</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">216422446</td>
+<td style="text-align:right;">38743918</td>
+<td style="text-align:right;">711380</td>
+<td style="text-align:right;">0.18</td>
+<td style="text-align:right;">1.84</td>
+</tr>
+<tr><td style="text-align:left;">British Virgin Islands</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">31538</td>
+<td style="text-align:right;">7392</td>
+<td style="text-align:right;">64</td>
+<td style="text-align:right;">0.23</td>
+<td style="text-align:right;">0.87</td>
+</tr>
+<tr><td style="text-align:left;">Brunei </td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">452524</td>
+<td style="text-align:right;">343719</td>
+<td style="text-align:right;">225</td>
+<td style="text-align:right;">0.76</td>
+<td style="text-align:right;">0.07</td>
+</tr>
+<tr><td style="text-align:left;">Bulgaria</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">6687717</td>
+<td style="text-align:right;">1339851</td>
+<td style="text-align:right;">38748</td>
+<td style="text-align:right;">0.2</td>
+<td style="text-align:right;">2.89</td>
+</tr>
+<tr><td style="text-align:left;">Burkina Faso</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">23251485</td>
+<td style="text-align:right;">22114</td>
+<td style="text-align:right;">400</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.81</td>
+</tr>
+<tr><td style="text-align:left;">Burundi</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">13238559</td>
+<td style="text-align:right;">54721</td>
+<td style="text-align:right;">38</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.07</td>
+</tr>
+<tr><td style="text-align:left;">Cabo Verde</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">598682</td>
+<td style="text-align:right;">64477</td>
+<td style="text-align:right;">417</td>
+<td style="text-align:right;">0.11</td>
+<td style="text-align:right;">0.65</td>
+</tr>
+<tr><td style="text-align:left;">Cambodia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">16944826</td>
+<td style="text-align:right;">139103</td>
+<td style="text-align:right;">3056</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">2.2</td>
+</tr>
+<tr><td style="text-align:left;">Cameroon</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">28647293</td>
+<td style="text-align:right;">125379</td>
+<td style="text-align:right;">1974</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.57</td>
+</tr>
+<tr><td style="text-align:left;">Canada</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">38781291</td>
+<td style="text-align:right;">4946090</td>
+<td style="text-align:right;">59034</td>
+<td style="text-align:right;">0.13</td>
+<td style="text-align:right;">1.19</td>
+</tr>
+<tr><td style="text-align:left;">Caribbean Netherlands</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">27148</td>
+<td style="text-align:right;">11682</td>
+<td style="text-align:right;">38</td>
+<td style="text-align:right;">0.43</td>
+<td style="text-align:right;">0.33</td>
+</tr>
+<tr><td style="text-align:left;">Cayman Islands</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">69310</td>
+<td style="text-align:right;">31472</td>
+<td style="text-align:right;">37</td>
+<td style="text-align:right;">0.45</td>
+<td style="text-align:right;">0.12</td>
+</tr>
+<tr><td style="text-align:left;">Central African Republic</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">5742315</td>
+<td style="text-align:right;">15440</td>
+<td style="text-align:right;">113</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.73</td>
+</tr>
+<tr><td style="text-align:left;">Chad</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">18278568</td>
+<td style="text-align:right;">7701</td>
+<td style="text-align:right;">194</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">2.52</td>
+</tr>
+<tr><td style="text-align:left;">Chile</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">19629590</td>
+<td style="text-align:right;">5384853</td>
+<td style="text-align:right;">64497</td>
+<td style="text-align:right;">0.27</td>
+<td style="text-align:right;">1.2</td>
+</tr>
+<tr><td style="text-align:left;">China</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">1425671352</td>
+<td style="text-align:right;">503302</td>
+<td style="text-align:right;">5272</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.05</td>
+</tr>
+<tr><td style="text-align:left;">Colombia</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">52085168</td>
+<td style="text-align:right;">6400173</td>
+<td style="text-align:right;">143200</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">2.24</td>
+</tr>
+<tr><td style="text-align:left;">Comoros</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">852075</td>
+<td style="text-align:right;">9109</td>
+<td style="text-align:right;">161</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.77</td>
+</tr>
+<tr><td style="text-align:left;">Congo</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">6106869</td>
+<td style="text-align:right;">25375</td>
+<td style="text-align:right;">386</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.52</td>
+</tr>
+<tr><td style="text-align:left;">Cook Islands</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">17044</td>
+<td style="text-align:right;">7203</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:right;">0.42</td>
+<td style="text-align:right;">0.03</td>
+</tr>
+<tr><td style="text-align:left;">Costa Rica</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">5212173</td>
+<td style="text-align:right;">1238883</td>
+<td style="text-align:right;">9428</td>
+<td style="text-align:right;">0.24</td>
+<td style="text-align:right;">0.76</td>
+</tr>
+<tr><td style="text-align:left;">Croatia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">4008617</td>
+<td style="text-align:right;">1309728</td>
+<td style="text-align:right;">18687</td>
+<td style="text-align:right;">0.33</td>
+<td style="text-align:right;">1.43</td>
+</tr>
+<tr><td style="text-align:left;">Cuba</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">11194449</td>
+<td style="text-align:right;">1115251</td>
+<td style="text-align:right;">8530</td>
+<td style="text-align:right;">0.1</td>
+<td style="text-align:right;">0.76</td>
+</tr>
+<tr><td style="text-align:left;">Curaçao</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">192077</td>
+<td style="text-align:right;">45986</td>
+<td style="text-align:right;">295</td>
+<td style="text-align:right;">0.24</td>
+<td style="text-align:right;">0.64</td>
+</tr>
+<tr><td style="text-align:left;">Cyprus</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">1260138</td>
+<td style="text-align:right;">681110</td>
+<td style="text-align:right;">1365</td>
+<td style="text-align:right;">0.54</td>
+<td style="text-align:right;">0.2</td>
+</tr>
+<tr><td style="text-align:left;">Czech Republic (Czechia)</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">10495295</td>
+<td style="text-align:right;">4759041</td>
+<td style="text-align:right;">43517</td>
+<td style="text-align:right;">0.45</td>
+<td style="text-align:right;">0.91</td>
+</tr>
+<tr><td style="text-align:left;">Côte d'Ivoire</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">28873034</td>
+<td style="text-align:right;">88384</td>
+<td style="text-align:right;">835</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.94</td>
+</tr>
+<tr><td style="text-align:left;">DR Congo</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">102262808</td>
+<td style="text-align:right;">99338</td>
+<td style="text-align:right;">1468</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.48</td>
+</tr>
+<tr><td style="text-align:left;">Denmark</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">5910913</td>
+<td style="text-align:right;">3183756</td>
+<td style="text-align:right;">8814</td>
+<td style="text-align:right;">0.54</td>
+<td style="text-align:right;">0.28</td>
+</tr>
+<tr><td style="text-align:left;">Djibouti</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">1136455</td>
+<td style="text-align:right;">15690</td>
+<td style="text-align:right;">189</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.2</td>
+</tr>
+<tr><td style="text-align:left;">Dominica</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">73040</td>
+<td style="text-align:right;">16038</td>
+<td style="text-align:right;">74</td>
+<td style="text-align:right;">0.22</td>
+<td style="text-align:right;">0.46</td>
+</tr>
+<tr><td style="text-align:left;">Dominican Republic</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">11332972</td>
+<td style="text-align:right;">675890</td>
+<td style="text-align:right;">4384</td>
+<td style="text-align:right;">0.06</td>
+<td style="text-align:right;">0.65</td>
+</tr>
+<tr><td style="text-align:left;">Ecuador</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">18190484</td>
+<td style="text-align:right;">1070188</td>
+<td style="text-align:right;">36043</td>
+<td style="text-align:right;">0.06</td>
+<td style="text-align:right;">3.37</td>
+</tr>
+<tr><td style="text-align:left;">Egypt</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">112716598</td>
+<td style="text-align:right;">516023</td>
+<td style="text-align:right;">24613</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">4.77</td>
+</tr>
+<tr><td style="text-align:left;">El Salvador</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">6364943</td>
+<td style="text-align:right;">201855</td>
+<td style="text-align:right;">4230</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">2.1</td>
+</tr>
+<tr><td style="text-align:left;">Equatorial Guinea</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">1714671</td>
+<td style="text-align:right;">17229</td>
+<td style="text-align:right;">183</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.06</td>
+</tr>
+<tr><td style="text-align:left;">Eritrea</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">3748901</td>
+<td style="text-align:right;">10189</td>
+<td style="text-align:right;">103</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.01</td>
+</tr>
+<tr><td style="text-align:left;">Estonia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">1322765</td>
+<td style="text-align:right;">628070</td>
+<td style="text-align:right;">3001</td>
+<td style="text-align:right;">0.47</td>
+<td style="text-align:right;">0.48</td>
+</tr>
+<tr><td style="text-align:left;">Eswatini</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">1210822</td>
+<td style="text-align:right;">75191</td>
+<td style="text-align:right;">1427</td>
+<td style="text-align:right;">0.06</td>
+<td style="text-align:right;">1.9</td>
+</tr>
+<tr><td style="text-align:left;">Ethiopia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">126527060</td>
+<td style="text-align:right;">501157</td>
+<td style="text-align:right;">7574</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.51</td>
+</tr>
+<tr><td style="text-align:left;">Faeroe Islands</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">53270</td>
+<td style="text-align:right;">34658</td>
+<td style="text-align:right;">28</td>
+<td style="text-align:right;">0.65</td>
+<td style="text-align:right;">0.08</td>
+</tr>
+<tr><td style="text-align:left;">Falkland Islands</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">3791</td>
+<td style="text-align:right;">1930</td>
+<td style="text-align:right;">0</td>
+<td style="text-align:right;">0.51</td>
+<td style="text-align:right;">0.0</td>
+</tr>
+<tr><td style="text-align:left;">Fiji</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">936375</td>
+<td style="text-align:right;">69117</td>
+<td style="text-align:right;">885</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">1.28</td>
+</tr>
+<tr><td style="text-align:left;">Finland</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">5545475</td>
+<td style="text-align:right;">1516117</td>
+<td style="text-align:right;">11958</td>
+<td style="text-align:right;">0.27</td>
+<td style="text-align:right;">0.79</td>
+</tr>
+<tr><td style="text-align:left;">France</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">64756584</td>
+<td style="text-align:right;">40138560</td>
+<td style="text-align:right;">167642</td>
+<td style="text-align:right;">0.62</td>
+<td style="text-align:right;">0.42</td>
+</tr>
+<tr><td style="text-align:left;">French Guiana</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">312155</td>
+<td style="text-align:right;">98041</td>
+<td style="text-align:right;">420</td>
+<td style="text-align:right;">0.31</td>
+<td style="text-align:right;">0.43</td>
+</tr>
+<tr><td style="text-align:left;">French Polynesia</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">308872</td>
+<td style="text-align:right;">79254</td>
+<td style="text-align:right;">650</td>
+<td style="text-align:right;">0.26</td>
+<td style="text-align:right;">0.82</td>
+</tr>
+<tr><td style="text-align:left;">Gabon</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">2436566</td>
+<td style="text-align:right;">49051</td>
+<td style="text-align:right;">307</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">0.63</td>
+</tr>
+<tr><td style="text-align:left;">Gambia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">2773168</td>
+<td style="text-align:right;">12626</td>
+<td style="text-align:right;">372</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">2.95</td>
+</tr>
+<tr><td style="text-align:left;">Georgia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">3728282</td>
+<td style="text-align:right;">1861665</td>
+<td style="text-align:right;">17132</td>
+<td style="text-align:right;">0.5</td>
+<td style="text-align:right;">0.92</td>
+</tr>
+<tr><td style="text-align:left;">Germany</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">83294633</td>
+<td style="text-align:right;">38828995</td>
+<td style="text-align:right;">183027</td>
+<td style="text-align:right;">0.47</td>
+<td style="text-align:right;">0.47</td>
+</tr>
+<tr><td style="text-align:left;">Ghana</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">34121985</td>
+<td style="text-align:right;">171889</td>
+<td style="text-align:right;">1462</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">0.85</td>
+</tr>
+<tr><td style="text-align:left;">Gibraltar</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">32688</td>
+<td style="text-align:right;">20550</td>
+<td style="text-align:right;">113</td>
+<td style="text-align:right;">0.63</td>
+<td style="text-align:right;">0.55</td>
+</tr>
+<tr><td style="text-align:left;">Greece</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">10341277</td>
+<td style="text-align:right;">6101379</td>
+<td style="text-align:right;">37869</td>
+<td style="text-align:right;">0.59</td>
+<td style="text-align:right;">0.62</td>
+</tr>
+<tr><td style="text-align:left;">Greenland</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">56643</td>
+<td style="text-align:right;">11971</td>
+<td style="text-align:right;">21</td>
+<td style="text-align:right;">0.21</td>
+<td style="text-align:right;">0.18</td>
+</tr>
+<tr><td style="text-align:left;">Grenada</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">126183</td>
+<td style="text-align:right;">19693</td>
+<td style="text-align:right;">238</td>
+<td style="text-align:right;">0.16</td>
+<td style="text-align:right;">1.21</td>
+</tr>
+<tr><td style="text-align:left;">Guadeloupe</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">395839</td>
+<td style="text-align:right;">203235</td>
+<td style="text-align:right;">1021</td>
+<td style="text-align:right;">0.51</td>
+<td style="text-align:right;">0.5</td>
+</tr>
+<tr><td style="text-align:left;">Guatemala</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">18092026</td>
+<td style="text-align:right;">1291293</td>
+<td style="text-align:right;">20289</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">1.57</td>
+</tr>
+<tr><td style="text-align:left;">Guinea</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">14190612</td>
+<td style="text-align:right;">38572</td>
+<td style="text-align:right;">468</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.21</td>
+</tr>
+<tr><td style="text-align:left;">Guinea-Bissau</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">2150842</td>
+<td style="text-align:right;">9614</td>
+<td style="text-align:right;">177</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.84</td>
+</tr>
+<tr><td style="text-align:left;">Guyana</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">813834</td>
+<td style="text-align:right;">74137</td>
+<td style="text-align:right;">1300</td>
+<td style="text-align:right;">0.09</td>
+<td style="text-align:right;">1.75</td>
+</tr>
+<tr><td style="text-align:left;">Haiti</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">11724763</td>
+<td style="text-align:right;">34667</td>
+<td style="text-align:right;">860</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">2.48</td>
+</tr>
+<tr><td style="text-align:left;">Holy See</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">518</td>
+<td style="text-align:right;">29</td>
+<td style="text-align:right;">0</td>
+<td style="text-align:right;">0.06</td>
+<td style="text-align:right;">0.0</td>
+</tr>
+<tr><td style="text-align:left;">Honduras</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">10593798</td>
+<td style="text-align:right;">474590</td>
+<td style="text-align:right;">11165</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">2.35</td>
+</tr>
+<tr><td style="text-align:left;">Hong Kong</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">7491609</td>
+<td style="text-align:right;">2937609</td>
+<td style="text-align:right;">14924</td>
+<td style="text-align:right;">0.39</td>
+<td style="text-align:right;">0.51</td>
+</tr>
+<tr><td style="text-align:left;">Hungary</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">10156239</td>
+<td style="text-align:right;">2230232</td>
+<td style="text-align:right;">49048</td>
+<td style="text-align:right;">0.22</td>
+<td style="text-align:right;">2.2</td>
+</tr>
+<tr><td style="text-align:left;">Iceland</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">375318</td>
+<td style="text-align:right;">209906</td>
+<td style="text-align:right;">229</td>
+<td style="text-align:right;">0.56</td>
+<td style="text-align:right;">0.11</td>
+</tr>
+<tr><td style="text-align:left;">India</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">1428627663</td>
+<td style="text-align:right;">45035393</td>
+<td style="text-align:right;">533570</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">1.18</td>
+</tr>
+<tr><td style="text-align:left;">Indonesia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">277534122</td>
+<td style="text-align:right;">6829221</td>
+<td style="text-align:right;">162063</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">2.37</td>
+</tr>
+<tr><td style="text-align:left;">Iran</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">89172767</td>
+<td style="text-align:right;">7627186</td>
+<td style="text-align:right;">146811</td>
+<td style="text-align:right;">0.09</td>
+<td style="text-align:right;">1.92</td>
+</tr>
+<tr><td style="text-align:left;">Iraq</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">45504560</td>
+<td style="text-align:right;">2465545</td>
+<td style="text-align:right;">25375</td>
+<td style="text-align:right;">0.05</td>
+<td style="text-align:right;">1.03</td>
+</tr>
+<tr><td style="text-align:left;">Ireland</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">5056935</td>
+<td style="text-align:right;">1734582</td>
+<td style="text-align:right;">9491</td>
+<td style="text-align:right;">0.34</td>
+<td style="text-align:right;">0.55</td>
+</tr>
+<tr><td style="text-align:left;">Isle of Man</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">84710</td>
+<td style="text-align:right;">38008</td>
+<td style="text-align:right;">116</td>
+<td style="text-align:right;">0.45</td>
+<td style="text-align:right;">0.31</td>
+</tr>
+<tr><td style="text-align:left;">Israel</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">9174520</td>
+<td style="text-align:right;">4841772</td>
+<td style="text-align:right;">12707</td>
+<td style="text-align:right;">0.53</td>
+<td style="text-align:right;">0.26</td>
+</tr>
+<tr><td style="text-align:left;">Italy</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">58870762</td>
+<td style="text-align:right;">26723249</td>
+<td style="text-align:right;">196487</td>
+<td style="text-align:right;">0.45</td>
+<td style="text-align:right;">0.74</td>
+</tr>
+<tr><td style="text-align:left;">Jamaica</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">2825544</td>
+<td style="text-align:right;">156869</td>
+<td style="text-align:right;">3756</td>
+<td style="text-align:right;">0.06</td>
+<td style="text-align:right;">2.39</td>
+</tr>
+<tr><td style="text-align:left;">Japan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">123294513</td>
+<td style="text-align:right;">33804284</td>
+<td style="text-align:right;">74707</td>
+<td style="text-align:right;">0.27</td>
+<td style="text-align:right;">0.22</td>
+</tr>
+<tr><td style="text-align:left;">Jordan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">11337052</td>
+<td style="text-align:right;">1746997</td>
+<td style="text-align:right;">14122</td>
+<td style="text-align:right;">0.15</td>
+<td style="text-align:right;">0.81</td>
+</tr>
+<tr><td style="text-align:left;">Kazakhstan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">19606633</td>
+<td style="text-align:right;">1411831</td>
+<td style="text-align:right;">13848</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">0.98</td>
+</tr>
+<tr><td style="text-align:left;">Kenya</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">55100586</td>
+<td style="text-align:right;">344130</td>
+<td style="text-align:right;">5689</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.65</td>
+</tr>
+<tr><td style="text-align:left;">Kiribati</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">133515</td>
+<td style="text-align:right;">5085</td>
+<td style="text-align:right;">24</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">0.47</td>
+</tr>
+<tr><td style="text-align:left;">Kuwait</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">4310108</td>
+<td style="text-align:right;">667158</td>
+<td style="text-align:right;">2570</td>
+<td style="text-align:right;">0.15</td>
+<td style="text-align:right;">0.39</td>
+</tr>
+<tr><td style="text-align:left;">Kyrgyzstan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">6735347</td>
+<td style="text-align:right;">206897</td>
+<td style="text-align:right;">2991</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">1.45</td>
+</tr>
+<tr><td style="text-align:left;">Laos</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">7633779</td>
+<td style="text-align:right;">218970</td>
+<td style="text-align:right;">758</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">0.35</td>
+</tr>
+<tr><td style="text-align:left;">Latvia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">1830211</td>
+<td style="text-align:right;">982505</td>
+<td style="text-align:right;">6715</td>
+<td style="text-align:right;">0.54</td>
+<td style="text-align:right;">0.68</td>
+</tr>
+<tr><td style="text-align:left;">Lebanon</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">5353930</td>
+<td style="text-align:right;">1243838</td>
+<td style="text-align:right;">10952</td>
+<td style="text-align:right;">0.23</td>
+<td style="text-align:right;">0.88</td>
+</tr>
+<tr><td style="text-align:left;">Lesotho</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">2330318</td>
+<td style="text-align:right;">36138</td>
+<td style="text-align:right;">723</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">2.0</td>
+</tr>
+<tr><td style="text-align:left;">Liberia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">5418377</td>
+<td style="text-align:right;">8090</td>
+<td style="text-align:right;">295</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">3.65</td>
+</tr>
+<tr><td style="text-align:left;">Libya</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">6888388</td>
+<td style="text-align:right;">507274</td>
+<td style="text-align:right;">6437</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">1.27</td>
+</tr>
+<tr><td style="text-align:left;">Liechtenstein</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">39584</td>
+<td style="text-align:right;">21574</td>
+<td style="text-align:right;">94</td>
+<td style="text-align:right;">0.55</td>
+<td style="text-align:right;">0.44</td>
+</tr>
+<tr><td style="text-align:left;">Lithuania</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">2718352</td>
+<td style="text-align:right;">1397806</td>
+<td style="text-align:right;">9897</td>
+<td style="text-align:right;">0.51</td>
+<td style="text-align:right;">0.71</td>
+</tr>
+<tr><td style="text-align:left;">Luxembourg</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">654768</td>
+<td style="text-align:right;">391232</td>
+<td style="text-align:right;">1232</td>
+<td style="text-align:right;">0.6</td>
+<td style="text-align:right;">0.31</td>
+</tr>
+<tr><td style="text-align:left;">Macao</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">704149</td>
+<td style="text-align:right;">27673</td>
+<td style="text-align:right;">123</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">0.44</td>
+</tr>
+<tr><td style="text-align:left;">Madagascar</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">30325732</td>
+<td style="text-align:right;">68486</td>
+<td style="text-align:right;">1426</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">2.08</td>
+</tr>
+<tr><td style="text-align:left;">Malawi</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">20931751</td>
+<td style="text-align:right;">89535</td>
+<td style="text-align:right;">2686</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">3.0</td>
+</tr>
+<tr><td style="text-align:left;">Malaysia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">34308525</td>
+<td style="text-align:right;">5278406</td>
+<td style="text-align:right;">37348</td>
+<td style="text-align:right;">0.15</td>
+<td style="text-align:right;">0.71</td>
+</tr>
+<tr><td style="text-align:left;">Maldives</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">521021</td>
+<td style="text-align:right;">186694</td>
+<td style="text-align:right;">316</td>
+<td style="text-align:right;">0.36</td>
+<td style="text-align:right;">0.17</td>
+</tr>
+<tr><td style="text-align:left;">Mali</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">23293698</td>
+<td style="text-align:right;">33164</td>
+<td style="text-align:right;">743</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">2.24</td>
+</tr>
+<tr><td style="text-align:left;">Malta</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">535064</td>
+<td style="text-align:right;">121420</td>
+<td style="text-align:right;">885</td>
+<td style="text-align:right;">0.23</td>
+<td style="text-align:right;">0.73</td>
+</tr>
+<tr><td style="text-align:left;">Marshall Islands</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">41996</td>
+<td style="text-align:right;">16138</td>
+<td style="text-align:right;">17</td>
+<td style="text-align:right;">0.38</td>
+<td style="text-align:right;">0.11</td>
+</tr>
+<tr><td style="text-align:left;">Martinique</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">366981</td>
+<td style="text-align:right;">230354</td>
+<td style="text-align:right;">1102</td>
+<td style="text-align:right;">0.63</td>
+<td style="text-align:right;">0.48</td>
+</tr>
+<tr><td style="text-align:left;">Mauritania</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">4862989</td>
+<td style="text-align:right;">63848</td>
+<td style="text-align:right;">997</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.56</td>
+</tr>
+<tr><td style="text-align:left;">Mauritius</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">1300557</td>
+<td style="text-align:right;">43025</td>
+<td style="text-align:right;">1051</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">2.44</td>
+</tr>
+<tr><td style="text-align:left;">Mayotte</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">335995</td>
+<td style="text-align:right;">42027</td>
+<td style="text-align:right;">188</td>
+<td style="text-align:right;">0.13</td>
+<td style="text-align:right;">0.45</td>
+</tr>
+<tr><td style="text-align:left;">Mexico</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">128455567</td>
+<td style="text-align:right;">7702809</td>
+<td style="text-align:right;">334958</td>
+<td style="text-align:right;">0.06</td>
+<td style="text-align:right;">4.35</td>
+</tr>
+<tr><td style="text-align:left;">Micronesia</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">544321</td>
+<td style="text-align:right;">26547</td>
+<td style="text-align:right;">65</td>
+<td style="text-align:right;">0.05</td>
+<td style="text-align:right;">0.24</td>
+</tr>
+<tr><td style="text-align:left;">Moldova</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">3435931</td>
+<td style="text-align:right;">635145</td>
+<td style="text-align:right;">12218</td>
+<td style="text-align:right;">0.18</td>
+<td style="text-align:right;">1.92</td>
+</tr>
+<tr><td style="text-align:left;">Monaco</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">36297</td>
+<td style="text-align:right;">17181</td>
+<td style="text-align:right;">67</td>
+<td style="text-align:right;">0.47</td>
+<td style="text-align:right;">0.39</td>
+</tr>
+<tr><td style="text-align:left;">Mongolia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">3447157</td>
+<td style="text-align:right;">1011496</td>
+<td style="text-align:right;">2284</td>
+<td style="text-align:right;">0.29</td>
+<td style="text-align:right;">0.23</td>
+</tr>
+<tr><td style="text-align:left;">Montenegro</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">626485</td>
+<td style="text-align:right;">296542</td>
+<td style="text-align:right;">2846</td>
+<td style="text-align:right;">0.47</td>
+<td style="text-align:right;">0.96</td>
+</tr>
+<tr><td style="text-align:left;">Montserrat</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">4386</td>
+<td style="text-align:right;">1403</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:right;">0.32</td>
+<td style="text-align:right;">0.57</td>
+</tr>
+<tr><td style="text-align:left;">Morocco</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">37840044</td>
+<td style="text-align:right;">1278992</td>
+<td style="text-align:right;">16303</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">1.27</td>
+</tr>
+<tr><td style="text-align:left;">Mozambique</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">33897354</td>
+<td style="text-align:right;">233731</td>
+<td style="text-align:right;">2250</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">0.96</td>
+</tr>
+<tr><td style="text-align:left;">Myanmar</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">54577997</td>
+<td style="text-align:right;">641873</td>
+<td style="text-align:right;">19495</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">3.04</td>
+</tr>
+<tr><td style="text-align:left;">Namibia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">2604172</td>
+<td style="text-align:right;">172389</td>
+<td style="text-align:right;">4106</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">2.38</td>
+</tr>
+<tr><td style="text-align:left;">Nauru</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">12780</td>
+<td style="text-align:right;">5393</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:right;">0.42</td>
+<td style="text-align:right;">0.02</td>
+</tr>
+<tr><td style="text-align:left;">Nepal</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">30896590</td>
+<td style="text-align:right;">1003450</td>
+<td style="text-align:right;">12031</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">1.2</td>
+</tr>
+<tr><td style="text-align:left;">Netherlands</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">17618299</td>
+<td style="text-align:right;">8635786</td>
+<td style="text-align:right;">22992</td>
+<td style="text-align:right;">0.49</td>
+<td style="text-align:right;">0.27</td>
+</tr>
+<tr><td style="text-align:left;">New Caledonia</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">292991</td>
+<td style="text-align:right;">80064</td>
+<td style="text-align:right;">314</td>
+<td style="text-align:right;">0.27</td>
+<td style="text-align:right;">0.39</td>
+</tr>
+<tr><td style="text-align:left;">New Zealand</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">5228100</td>
+<td style="text-align:right;">2621111</td>
+<td style="text-align:right;">5697</td>
+<td style="text-align:right;">0.5</td>
+<td style="text-align:right;">0.22</td>
+</tr>
+<tr><td style="text-align:left;">Nicaragua</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">7046310</td>
+<td style="text-align:right;">18491</td>
+<td style="text-align:right;">225</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.22</td>
+</tr>
+<tr><td style="text-align:left;">Niger</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">27202843</td>
+<td style="text-align:right;">9931</td>
+<td style="text-align:right;">312</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">3.14</td>
+</tr>
+<tr><td style="text-align:left;">Nigeria</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">223804632</td>
+<td style="text-align:right;">267188</td>
+<td style="text-align:right;">3155</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.18</td>
+</tr>
+<tr><td style="text-align:left;">Niue</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">1935</td>
+<td style="text-align:right;">1059</td>
+<td style="text-align:right;">0</td>
+<td style="text-align:right;">0.55</td>
+<td style="text-align:right;">0.0</td>
+</tr>
+<tr><td style="text-align:left;">North Korea</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">26160821</td>
+<td style="text-align:right;">4772813</td>
+<td style="text-align:right;">74</td>
+<td style="text-align:right;">0.18</td>
+<td style="text-align:right;">0.0</td>
+</tr>
+<tr><td style="text-align:left;">North Macedonia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">2085679</td>
+<td style="text-align:right;">350567</td>
+<td style="text-align:right;">9976</td>
+<td style="text-align:right;">0.17</td>
+<td style="text-align:right;">2.85</td>
+</tr>
+<tr><td style="text-align:left;">Norway</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">5474360</td>
+<td style="text-align:right;">1509732</td>
+<td style="text-align:right;">6638</td>
+<td style="text-align:right;">0.28</td>
+<td style="text-align:right;">0.44</td>
+</tr>
+<tr><td style="text-align:left;">Oman</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">4644384</td>
+<td style="text-align:right;">399449</td>
+<td style="text-align:right;">4628</td>
+<td style="text-align:right;">0.09</td>
+<td style="text-align:right;">1.16</td>
+</tr>
+<tr><td style="text-align:left;">Pakistan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">240485658</td>
+<td style="text-align:right;">1581936</td>
+<td style="text-align:right;">30664</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.94</td>
+</tr>
+<tr><td style="text-align:left;">Palau</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">18058</td>
+<td style="text-align:right;">6290</td>
+<td style="text-align:right;">10</td>
+<td style="text-align:right;">0.35</td>
+<td style="text-align:right;">0.16</td>
+</tr>
+<tr><td style="text-align:left;">Panama</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">4468087</td>
+<td style="text-align:right;">1059893</td>
+<td style="text-align:right;">8727</td>
+<td style="text-align:right;">0.24</td>
+<td style="text-align:right;">0.82</td>
+</tr>
+<tr><td style="text-align:left;">Papua New Guinea</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">10329931</td>
+<td style="text-align:right;">46864</td>
+<td style="text-align:right;">670</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.43</td>
+</tr>
+<tr><td style="text-align:left;">Paraguay</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">6861524</td>
+<td style="text-align:right;">837602</td>
+<td style="text-align:right;">20155</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">2.41</td>
+</tr>
+<tr><td style="text-align:left;">Peru</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">34352719</td>
+<td style="text-align:right;">4572667</td>
+<td style="text-align:right;">222161</td>
+<td style="text-align:right;">0.13</td>
+<td style="text-align:right;">4.86</td>
+</tr>
+<tr><td style="text-align:left;">Philippines</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">117337368</td>
+<td style="text-align:right;">4140383</td>
+<td style="text-align:right;">66864</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">1.61</td>
+</tr>
+<tr><td style="text-align:left;">Poland</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">41026067</td>
+<td style="text-align:right;">6661991</td>
+<td style="text-align:right;">120598</td>
+<td style="text-align:right;">0.16</td>
+<td style="text-align:right;">1.81</td>
+</tr>
+<tr><td style="text-align:left;">Portugal</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">10247605</td>
+<td style="text-align:right;">5643062</td>
+<td style="text-align:right;">28126</td>
+<td style="text-align:right;">0.55</td>
+<td style="text-align:right;">0.5</td>
+</tr>
+<tr><td style="text-align:left;">Qatar</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">2716391</td>
+<td style="text-align:right;">514524</td>
+<td style="text-align:right;">690</td>
+<td style="text-align:right;">0.19</td>
+<td style="text-align:right;">0.13</td>
+</tr>
+<tr><td style="text-align:left;">Romania</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">19892812</td>
+<td style="text-align:right;">3529735</td>
+<td style="text-align:right;">68929</td>
+<td style="text-align:right;">0.18</td>
+<td style="text-align:right;">1.95</td>
+</tr>
+<tr><td style="text-align:left;">Russia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">144444359</td>
+<td style="text-align:right;">24124215</td>
+<td style="text-align:right;">402756</td>
+<td style="text-align:right;">0.17</td>
+<td style="text-align:right;">1.67</td>
+</tr>
+<tr><td style="text-align:left;">Rwanda</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">14094683</td>
+<td style="text-align:right;">133518</td>
+<td style="text-align:right;">1468</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">1.1</td>
+</tr>
+<tr><td style="text-align:left;">Réunion</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">981796</td>
+<td style="text-align:right;">494595</td>
+<td style="text-align:right;">921</td>
+<td style="text-align:right;">0.5</td>
+<td style="text-align:right;">0.19</td>
+</tr>
+<tr><td style="text-align:left;">Saint Barthelemy</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">10994</td>
+<td style="text-align:right;">5507</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:right;">0.5</td>
+<td style="text-align:right;">0.11</td>
+</tr>
+<tr><td style="text-align:left;">Saint Helena</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">5314</td>
+<td style="text-align:right;">2166</td>
+<td style="text-align:right;">0</td>
+<td style="text-align:right;">0.41</td>
+<td style="text-align:right;">0.0</td>
+</tr>
+<tr><td style="text-align:left;">Saint Kitts & Nevis</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">47755</td>
+<td style="text-align:right;">6607</td>
+<td style="text-align:right;">48</td>
+<td style="text-align:right;">0.14</td>
+<td style="text-align:right;">0.73</td>
+</tr>
+<tr><td style="text-align:left;">Saint Lucia</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">180251</td>
+<td style="text-align:right;">30215</td>
+<td style="text-align:right;">410</td>
+<td style="text-align:right;">0.17</td>
+<td style="text-align:right;">1.36</td>
+</tr>
+<tr><td style="text-align:left;">Saint Martin</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">32077</td>
+<td style="text-align:right;">12324</td>
+<td style="text-align:right;">63</td>
+<td style="text-align:right;">0.38</td>
+<td style="text-align:right;">0.51</td>
+</tr>
+<tr><td style="text-align:left;">Saint Pierre & Miquelon</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">5840</td>
+<td style="text-align:right;">3452</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:right;">0.59</td>
+<td style="text-align:right;">0.06</td>
+</tr>
+<tr><td style="text-align:left;">Samoa</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">225681</td>
+<td style="text-align:right;">17006</td>
+<td style="text-align:right;">31</td>
+<td style="text-align:right;">0.08</td>
+<td style="text-align:right;">0.18</td>
+</tr>
+<tr><td style="text-align:left;">San Marino</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">33642</td>
+<td style="text-align:right;">26185</td>
+<td style="text-align:right;">128</td>
+<td style="text-align:right;">0.78</td>
+<td style="text-align:right;">0.49</td>
+</tr>
+<tr><td style="text-align:left;">Sao Tome & Principe</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">231856</td>
+<td style="text-align:right;">6778</td>
+<td style="text-align:right;">80</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">1.18</td>
+</tr>
+<tr><td style="text-align:left;">Saudi Arabia</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">36947025</td>
+<td style="text-align:right;">841469</td>
+<td style="text-align:right;">9646</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">1.15</td>
+</tr>
+<tr><td style="text-align:left;">Senegal</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">17763163</td>
+<td style="text-align:right;">89053</td>
+<td style="text-align:right;">1971</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">2.21</td>
+</tr>
+<tr><td style="text-align:left;">Serbia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">7149077</td>
+<td style="text-align:right;">2615054</td>
+<td style="text-align:right;">18057</td>
+<td style="text-align:right;">0.37</td>
+<td style="text-align:right;">0.69</td>
+</tr>
+<tr><td style="text-align:left;">Seychelles</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">107660</td>
+<td style="text-align:right;">51220</td>
+<td style="text-align:right;">172</td>
+<td style="text-align:right;">0.48</td>
+<td style="text-align:right;">0.34</td>
+</tr>
+<tr><td style="text-align:left;">Sierra Leone</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">8791092</td>
+<td style="text-align:right;">7779</td>
+<td style="text-align:right;">126</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.62</td>
+</tr>
+<tr><td style="text-align:left;">Singapore</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">6014723</td>
+<td style="text-align:right;">3006155</td>
+<td style="text-align:right;">2024</td>
+<td style="text-align:right;">0.5</td>
+<td style="text-align:right;">0.07</td>
+</tr>
+<tr><td style="text-align:left;">Sint Maarten</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">44222</td>
+<td style="text-align:right;">11051</td>
+<td style="text-align:right;">92</td>
+<td style="text-align:right;">0.25</td>
+<td style="text-align:right;">0.83</td>
+</tr>
+<tr><td style="text-align:left;">Slovakia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">5795199</td>
+<td style="text-align:right;">1877605</td>
+<td style="text-align:right;">21224</td>
+<td style="text-align:right;">0.32</td>
+<td style="text-align:right;">1.13</td>
+</tr>
+<tr><td style="text-align:left;">Slovenia</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">2119675</td>
+<td style="text-align:right;">1356546</td>
+<td style="text-align:right;">7100</td>
+<td style="text-align:right;">0.64</td>
+<td style="text-align:right;">0.52</td>
+</tr>
+<tr><td style="text-align:left;">Solomon Islands</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">740424</td>
+<td style="text-align:right;">25954</td>
+<td style="text-align:right;">199</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">0.77</td>
+</tr>
+<tr><td style="text-align:left;">Somalia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">18143378</td>
+<td style="text-align:right;">27334</td>
+<td style="text-align:right;">1361</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">4.98</td>
+</tr>
+<tr><td style="text-align:left;">South Africa</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">60414495</td>
+<td style="text-align:right;">4076463</td>
+<td style="text-align:right;">102595</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">2.52</td>
+</tr>
+<tr><td style="text-align:left;">South Korea</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">51784059</td>
+<td style="text-align:right;">34571873</td>
+<td style="text-align:right;">35934</td>
+<td style="text-align:right;">0.67</td>
+<td style="text-align:right;">0.1</td>
+</tr>
+<tr><td style="text-align:left;">South Sudan</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">11088796</td>
+<td style="text-align:right;">18819</td>
+<td style="text-align:right;">147</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.78</td>
+</tr>
+<tr><td style="text-align:left;">Spain</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">47519628</td>
+<td style="text-align:right;">13914811</td>
+<td style="text-align:right;">121760</td>
+<td style="text-align:right;">0.29</td>
+<td style="text-align:right;">0.88</td>
+</tr>
+<tr><td style="text-align:left;">Sri Lanka</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">21893579</td>
+<td style="text-align:right;">672754</td>
+<td style="text-align:right;">16897</td>
+<td style="text-align:right;">0.03</td>
+<td style="text-align:right;">2.51</td>
+</tr>
+<tr><td style="text-align:left;">St. Vincent & Grenadines</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">103698</td>
+<td style="text-align:right;">9674</td>
+<td style="text-align:right;">124</td>
+<td style="text-align:right;">0.09</td>
+<td style="text-align:right;">1.28</td>
+</tr>
+<tr><td style="text-align:left;">State of Palestine</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">5371230</td>
+<td style="text-align:right;">621008</td>
+<td style="text-align:right;">5404</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">0.87</td>
+</tr>
+<tr><td style="text-align:left;">Sudan</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">48109006</td>
+<td style="text-align:right;">63993</td>
+<td style="text-align:right;">5046</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">7.89</td>
+</tr>
+<tr><td style="text-align:left;">Suriname</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">623236</td>
+<td style="text-align:right;">82588</td>
+<td style="text-align:right;">1408</td>
+<td style="text-align:right;">0.13</td>
+<td style="text-align:right;">1.7</td>
+</tr>
+<tr><td style="text-align:left;">Sweden</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">10612086</td>
+<td style="text-align:right;">2754129</td>
+<td style="text-align:right;">27407</td>
+<td style="text-align:right;">0.26</td>
+<td style="text-align:right;">1.0</td>
+</tr>
+<tr><td style="text-align:left;">Switzerland</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">8796669</td>
+<td style="text-align:right;">4453053</td>
+<td style="text-align:right;">14452</td>
+<td style="text-align:right;">0.51</td>
+<td style="text-align:right;">0.32</td>
+</tr>
+<tr><td style="text-align:left;">Syria</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">23227014</td>
+<td style="text-align:right;">57743</td>
+<td style="text-align:right;">3165</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">5.48</td>
+</tr>
+<tr><td style="text-align:left;">Taiwan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">23923276</td>
+<td style="text-align:right;">10241523</td>
+<td style="text-align:right;">19005</td>
+<td style="text-align:right;">0.43</td>
+<td style="text-align:right;">0.19</td>
+</tr>
+<tr><td style="text-align:left;">Tajikistan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">10143543</td>
+<td style="text-align:right;">17786</td>
+<td style="text-align:right;">125</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.7</td>
+</tr>
+<tr><td style="text-align:left;">Tanzania</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">67438106</td>
+<td style="text-align:right;">43223</td>
+<td style="text-align:right;">846</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">1.96</td>
+</tr>
+<tr><td style="text-align:left;">Thailand</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">71801279</td>
+<td style="text-align:right;">4770149</td>
+<td style="text-align:right;">34586</td>
+<td style="text-align:right;">0.07</td>
+<td style="text-align:right;">0.73</td>
+</tr>
+<tr><td style="text-align:left;">Timor-Leste</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">1360596</td>
+<td style="text-align:right;">23460</td>
+<td style="text-align:right;">138</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">0.59</td>
+</tr>
+<tr><td style="text-align:left;">Togo</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">9053799</td>
+<td style="text-align:right;">39572</td>
+<td style="text-align:right;">290</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">0.73</td>
+</tr>
+<tr><td style="text-align:left;">Tokelau</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">1893</td>
+<td style="text-align:right;">80</td>
+<td style="text-align:right;">0</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">0.0</td>
+</tr>
+<tr><td style="text-align:left;">Tonga</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">107773</td>
+<td style="text-align:right;">16950</td>
+<td style="text-align:right;">13</td>
+<td style="text-align:right;">0.16</td>
+<td style="text-align:right;">0.08</td>
+</tr>
+<tr><td style="text-align:left;">Trinidad and Tobago</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">1534937</td>
+<td style="text-align:right;">191496</td>
+<td style="text-align:right;">4390</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">2.29</td>
+</tr>
+<tr><td style="text-align:left;">Tunisia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">12458223</td>
+<td style="text-align:right;">1153361</td>
+<td style="text-align:right;">29423</td>
+<td style="text-align:right;">0.09</td>
+<td style="text-align:right;">2.55</td>
+</tr>
+<tr><td style="text-align:left;">Turkey</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">85816199</td>
+<td style="text-align:right;">17232066</td>
+<td style="text-align:right;">102174</td>
+<td style="text-align:right;">0.2</td>
+<td style="text-align:right;">0.59</td>
+</tr>
+<tr><td style="text-align:left;">Turks and Caicos</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">46062</td>
+<td style="text-align:right;">6752</td>
+<td style="text-align:right;">40</td>
+<td style="text-align:right;">0.15</td>
+<td style="text-align:right;">0.59</td>
+</tr>
+<tr><td style="text-align:left;">Tuvalu</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">11396</td>
+<td style="text-align:right;">2943</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:right;">0.26</td>
+<td style="text-align:right;">0.03</td>
+</tr>
+<tr><td style="text-align:left;">Uganda</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">48582334</td>
+<td style="text-align:right;">172149</td>
+<td style="text-align:right;">3632</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">2.11</td>
+</tr>
+<tr><td style="text-align:left;">Ukraine</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">36744634</td>
+<td style="text-align:right;">5557995</td>
+<td style="text-align:right;">112418</td>
+<td style="text-align:right;">0.15</td>
+<td style="text-align:right;">2.02</td>
+</tr>
+<tr><td style="text-align:left;">United Arab Emirates</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">9516871</td>
+<td style="text-align:right;">1067030</td>
+<td style="text-align:right;">2349</td>
+<td style="text-align:right;">0.11</td>
+<td style="text-align:right;">0.22</td>
+</tr>
+<tr><td style="text-align:left;">United Kingdom</td>
+<td style="text-align:left;">Europe</td>
+<td style="text-align:right;">67736802</td>
+<td style="text-align:right;">24910387</td>
+<td style="text-align:right;">232112</td>
+<td style="text-align:right;">0.37</td>
+<td style="text-align:right;">0.93</td>
+</tr>
+<tr><td style="text-align:left;">United States</td>
+<td style="text-align:left;">North America</td>
+<td style="text-align:right;">339996563</td>
+<td style="text-align:right;">111820082</td>
+<td style="text-align:right;">1219487</td>
+<td style="text-align:right;">0.33</td>
+<td style="text-align:right;">1.09</td>
+</tr>
+<tr><td style="text-align:left;">Uruguay</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">3423108</td>
+<td style="text-align:right;">1041111</td>
+<td style="text-align:right;">7664</td>
+<td style="text-align:right;">0.3</td>
+<td style="text-align:right;">0.74</td>
+</tr>
+<tr><td style="text-align:left;">Uzbekistan</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">35163944</td>
+<td style="text-align:right;">253662</td>
+<td style="text-align:right;">1637</td>
+<td style="text-align:right;">0.01</td>
+<td style="text-align:right;">0.65</td>
+</tr>
+<tr><td style="text-align:left;">Vanuatu</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">334506</td>
+<td style="text-align:right;">12019</td>
+<td style="text-align:right;">14</td>
+<td style="text-align:right;">0.04</td>
+<td style="text-align:right;">0.12</td>
+</tr>
+<tr><td style="text-align:left;">Venezuela</td>
+<td style="text-align:left;">South America</td>
+<td style="text-align:right;">28838499</td>
+<td style="text-align:right;">552695</td>
+<td style="text-align:right;">5856</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">1.06</td>
+</tr>
+<tr><td style="text-align:left;">Vietnam</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">98858950</td>
+<td style="text-align:right;">11625195</td>
+<td style="text-align:right;">43206</td>
+<td style="text-align:right;">0.12</td>
+<td style="text-align:right;">0.37</td>
+</tr>
+<tr><td style="text-align:left;">Wallis & Futuna</td>
+<td style="text-align:left;">Australia/Oceania</td>
+<td style="text-align:right;">11502</td>
+<td style="text-align:right;">3550</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:right;">0.31</td>
+<td style="text-align:right;">0.23</td>
+</tr>
+<tr><td style="text-align:left;">Western Sahara</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">587259</td>
+<td style="text-align:right;">10</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">10.0</td>
+</tr>
+<tr><td style="text-align:left;">Yemen</td>
+<td style="text-align:left;">Asia</td>
+<td style="text-align:right;">34449825</td>
+<td style="text-align:right;">11945</td>
+<td style="text-align:right;">2159</td>
+<td style="text-align:right;">0.0</td>
+<td style="text-align:right;">18.07</td>
+</tr>
+<tr><td style="text-align:left;">Zambia</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">20569737</td>
+<td style="text-align:right;">349304</td>
+<td style="text-align:right;">4069</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">1.16</td>
+</tr>
+<tr><td style="text-align:left;">Zimbabwe</td>
+<td style="text-align:left;">Africa</td>
+<td style="text-align:right;">16665409</td>
+<td style="text-align:right;">266359</td>
+<td style="text-align:right;">5740</td>
+<td style="text-align:right;">0.02</td>
+<td style="text-align:right;">2.15</td>
+</tr>
+</table>
+<center><h6>&copy;2024 • All Rights Reserved • Generated on Jul. 10, 2024 09:51 AM</h6>
+</center>
+</body>
+</html>
